@@ -108,6 +108,39 @@ Serve the `frontend/dist` static files behind your CDN or reverse proxy, and run
 - Configure Firebase Storage rules and Firestore rules to match your trust model.
 - Use HTTPS everywhere and rotate JWT secrets on compromise.
 
+## Deploy on Render
+
+This repo includes `render.yaml` for Blueprint deploy (frontend + backend).
+
+### One-time setup
+
+1. Push latest code to GitHub (already done for this repo).
+2. Create a MongoDB Atlas database and copy its connection string.
+3. In Render: **New +** -> **Blueprint** -> connect this GitHub repo -> select branch `main`.
+4. Render will create:
+   - `mvs-backend` (Node web service from `backend`)
+   - `mvs-frontend` (static site from `frontend`)
+
+### Required edits in Render after first sync
+
+- Update `CLIENT_ORIGIN` in `mvs-backend` to your actual frontend URL.
+- Update `VITE_API_URL` in `mvs-frontend` to your actual backend URL.
+- Set secret env vars in `mvs-backend`:
+  - `MONGODB_URI`
+  - `JWT_SECRET`
+  - (optional) Razorpay and Firebase keys
+
+### CORS note
+
+`CLIENT_ORIGIN` now supports a comma-separated list, for example:
+
+`https://mvs-frontend.onrender.com,https://www.yourdomain.com`
+
+### Verify deployment
+
+- Backend health: `https://<your-backend>.onrender.com/api/health`
+- Frontend opens and can reach API endpoints.
+
 ## Project structure
 
 ```
