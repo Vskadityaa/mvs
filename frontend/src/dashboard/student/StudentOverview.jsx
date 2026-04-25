@@ -15,42 +15,42 @@ export function StudentOverview() {
       .catch(() => {});
   }, []);
 
-  if (!profile) return <p className="text-slate-500">Loading…</p>;
+  if (!profile) return <p className="text-slate-500">लोड होत आहे…</p>;
 
   const unread = notifications.filter((x) => !x.read).length;
 
   return (
     <div className="space-y-8">
       <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-600 to-indigo-700 p-8 text-white shadow-lg dark:border-slate-800">
-        <p className="text-sm font-medium text-white/80">Welcome back</p>
+        <p className="text-sm font-medium text-white/80">पुन्हा स्वागत</p>
         <h1 className="mt-2 font-display text-3xl font-bold">{profile.user?.name}</h1>
         <p className="mt-2 text-white/90">
           {profile.class
             ? `${profile.class.name} ${profile.class.section}`
-            : 'Class not assigned yet'}
+            : 'वर्ग अद्याप नेमलेला नाही'}
         </p>
         <p className="mt-1 text-sm text-white/80">
-          Roll: {profile.rollNo || '—'} · Admission: {profile.admissionNo || '—'}
+          रोल: {profile.rollNo || '—'} · प्रवेश क्र.: {profile.admissionNo || '—'}
         </p>
       </div>
 
       {unread > 0 && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
-          You have {unread} unread notifications.{' '}
+          तुमच्याकडे {unread} न वाचलेली नोटिफिकेशन्स आहेत.{' '}
           <Link to="/student/notifications" className="font-semibold underline">
-            View
+            पहा
           </Link>
         </div>
       )}
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[
-          { to: '/student/attendance', label: 'Attendance', desc: 'View your record' },
-          { to: '/student/homework', label: 'Homework', desc: 'Tasks & attachments' },
-          { to: '/student/notes', label: 'Notes', desc: 'Download PDFs' },
-          { to: '/student/results', label: 'Results', desc: 'Marks & exams' },
-          { to: '/student/notices', label: 'Notices', desc: 'Real-time updates' },
-          { to: '/student/fees', label: 'Fees', desc: 'Razorpay / demo pay' },
+          { to: '/student/attendance', label: 'उपस्थिती', desc: 'तुमची नोंद पहा' },
+          { to: '/student/homework', label: 'गृहपाठ', desc: 'कामे व जोडलेल्या फाइल्स' },
+          { to: '/student/notes', label: 'नोट्स', desc: 'PDF डाउनलोड' },
+          { to: '/student/results', label: 'निकाल', desc: 'गुण व परीक्षा' },
+          { to: '/student/notices', label: 'सूचना', desc: 'रिअल-टाइम अपडेट्स' },
+          { to: '/student/fees', label: 'फी', desc: 'Razorpay / डेमो पेमेंट' },
         ].map((c) => (
           <Link
             key={c.to}

@@ -1,6 +1,9 @@
 /**
  * Branding assets live in frontend/public/branding/
- * Current files: logo.jpg, hero-bg.jpg, section-1.jpg (building photo)
+ * Suggested file names for clarity:
+ * - hero-bg.jpg
+ * - sect1.jpg
+ * - sect2.jpg
  */
 export const BRANDING = {
   /** Full official name — hero, footer, metadata */
@@ -19,6 +22,10 @@ export const BRANDING = {
   invertHeroLogo: false,
 
   heroBackground: '/branding/hero-bg.jpg',
-  sectionCampus: '/branding/section-1.jpg',
-  sectionLife: '/branding/section-2.jpg',
+  /**
+   * Keeping sect1/sect2 as hero image until those files are added.
+   * Add files in /public/branding and update below if needed.
+   */
+  sectionCampus: '/branding/hero-bg.jpg',
+  sectionLife: '/branding/hero-bg.jpg',
 };

@@ -19,7 +19,7 @@ export function StudentNotifications() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Notifications</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">नोटिफिकेशन्स</h1>
       <ul className="space-y-2">
         {rows.map((n) => (
           <li
@@ -37,7 +37,7 @@ export function StudentNotifications() {
                 className="mt-2 text-xs font-semibold text-brand-600"
                 onClick={() => markRead(n._id)}
               >
-                Mark read
+                वाचले म्हणून चिन्हांकित करा
               </button>
             )}
           </li>

@@ -3,6 +3,10 @@ import { api } from '../../services/api.js';
 
 export function AdminSuggestions() {
   const [rows, setRows] = useState([]);
+  const statusLabel = {
+    new: 'नवीन',
+    reviewed: 'तपासलेले',
+  };
 
   async function load() {
     setRows(await api('/api/admin/suggestions'));
@@ -19,7 +23,7 @@ export function AdminSuggestions() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Suggestions & contact</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">सूचना आणि संपर्क</h1>
       <div className="space-y-3">
         {rows.map((r) => (
           <div
@@ -33,14 +37,16 @@ export function AdminSuggestions() {
                 <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{r.message}</p>
               </div>
               <div className="flex flex-col items-end gap-2">
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs dark:bg-slate-800">{r.status}</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs dark:bg-slate-800">
+                  {statusLabel[r.status] ?? r.status}
+                </span>
                 {r.status === 'new' && (
                   <button
                     type="button"
                     className="text-xs font-semibold text-brand-600"
                     onClick={() => mark(r._id, 'reviewed')}
                   >
-                    Mark reviewed
+                    तपासले म्हणून चिन्हांकित करा
                   </button>
                 )}
               </div>

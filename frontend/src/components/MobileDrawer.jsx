@@ -29,7 +29,7 @@ export function MobileDrawer({ open, onClose, title, children }) {
         <div className="fixed inset-0 z-[200]" role="dialog" aria-modal="true" aria-label={title}>
           <motion.button
             type="button"
-            aria-label="Close menu"
+            aria-label="मेनू बंद करा"
             className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -50,7 +50,7 @@ export function MobileDrawer({ open, onClose, title, children }) {
                 type="button"
                 onClick={onClose}
                 className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
-                aria-label="Close"
+                aria-label="बंद करा"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -76,7 +76,7 @@ export function KebabMenuButton({ open, onClick, className = '' }) {
         open ? 'border-brand-400 bg-brand-50 text-brand-800 dark:border-brand-500 dark:bg-brand-950/50 dark:text-brand-100' : ''
       } ${className}`}
       aria-expanded={open}
-      aria-label={open ? 'Close menu' : 'Open site menu'}
+      aria-label={open ? 'मेनू बंद करा' : 'साइट मेनू उघडा'}
       whileTap={{ scale: 0.95 }}
     >
       <span className="flex flex-col items-center gap-[5px]" aria-hidden>
@@ -95,7 +95,7 @@ export function HamburgerButton({ open, onClick, className = '' }) {
       onClick={onClick}
       className={`flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white text-slate-800 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 ${className}`}
       aria-expanded={open}
-      aria-label={open ? 'Close menu' : 'Open menu'}
+      aria-label={open ? 'मेनू बंद करा' : 'मेनू उघडा'}
       whileTap={{ scale: 0.95 }}
     >
       <motion.span

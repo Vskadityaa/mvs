@@ -41,21 +41,21 @@ export function DashboardShell({ navItems, title, children }) {
                 onClick={() => navigate('/')}
                 className="w-full rounded-xl px-3 py-2 text-left text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
               >
-                ← Public site
+                ← सार्वजनिक संकेतस्थळ
               </button>
               <button
                 type="button"
                 onClick={toggle}
                 className="w-full rounded-xl px-3 py-2 text-left text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
               >
-                {dark ? 'Light mode' : 'Dark mode'}
+                {dark ? 'लाईट मोड' : 'डार्क मोड'}
               </button>
               <button
                 type="button"
                 onClick={logout}
                 className="w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40"
               >
-                Logout
+                बाहेर पडा
               </button>
             </div>
           </div>
@@ -73,13 +73,13 @@ export function DashboardShell({ navItems, title, children }) {
                 onClick={toggle}
                 className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs dark:border-slate-700"
               >
-                {dark ? 'Light' : 'Dark'}
+                {dark ? 'लाईट' : 'डार्क'}
               </motion.button>
               <HamburgerButton open={menuOpen} onClick={() => setMenuOpen((v) => !v)} />
             </div>
           </div>
 
-          <MobileDrawer open={menuOpen} onClose={closeMenu} title={`${title} menu`}>
+          <MobileDrawer open={menuOpen} onClose={closeMenu} title={`${title} मेनू`}>
             <p className="mb-2 px-4 text-xs text-slate-500">{user?.email}</p>
             <nav className="flex flex-col px-2">
               {navItems.map((item) => (
@@ -107,14 +107,14 @@ export function DashboardShell({ navItems, title, children }) {
                 onClick={() => navigate('/')}
                 className="mb-2 w-full rounded-xl py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
               >
-                ← Public site
+                ← सार्वजनिक संकेतस्थळ
               </button>
               <button
                 type="button"
                 onClick={toggle}
                 className="mb-2 w-full rounded-xl py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
               >
-                {dark ? 'Light mode' : 'Dark mode'}
+                {dark ? 'लाईट मोड' : 'डार्क मोड'}
               </button>
               <button
                 type="button"
@@ -124,7 +124,7 @@ export function DashboardShell({ navItems, title, children }) {
                 }}
                 className="w-full rounded-xl py-2.5 text-left text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30"
               >
-                Logout
+                बाहेर पडा
               </button>
             </div>
           </MobileDrawer>

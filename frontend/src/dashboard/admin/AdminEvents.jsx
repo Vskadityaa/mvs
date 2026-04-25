@@ -30,20 +30,20 @@ export function AdminEvents() {
   }
 
   async function remove(id) {
-    if (!confirm('Delete event?')) return;
+    if (!confirm('कार्यक्रम हटवायचा का?')) return;
     await api(`/api/admin/events/${id}`, { method: 'DELETE' });
     load();
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Events</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">कार्यक्रम</h1>
       <form
         onSubmit={create}
         className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:grid-cols-2"
       >
         <input
-          placeholder="Title"
+          placeholder="शीर्षक"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -56,7 +56,7 @@ export function AdminEvents() {
           onChange={(e) => setForm({ ...form, date: e.target.value })}
         />
         <input
-          placeholder="Venue"
+          placeholder="स्थळ"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.venue}
           onChange={(e) => setForm({ ...form, venue: e.target.value })}
@@ -67,10 +67,10 @@ export function AdminEvents() {
             checked={form.featured}
             onChange={(e) => setForm({ ...form, featured: e.target.checked })}
           />
-          Featured
+          विशेष
         </label>
         <textarea
-          placeholder="Description"
+          placeholder="वर्णन"
           className="md:col-span-2 rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           rows={3}
           value={form.description}
@@ -80,7 +80,7 @@ export function AdminEvents() {
           type="submit"
           className="md:col-span-2 rounded-xl bg-brand-600 py-2 text-sm font-semibold text-white"
         >
-          Add event
+          कार्यक्रम जोडा
         </button>
       </form>
       <ul className="space-y-2">
@@ -96,7 +96,7 @@ export function AdminEvents() {
               </p>
             </div>
             <button type="button" className="text-red-600" onClick={() => remove(ev._id)}>
-              Delete
+              हटवा
             </button>
           </li>
         ))}

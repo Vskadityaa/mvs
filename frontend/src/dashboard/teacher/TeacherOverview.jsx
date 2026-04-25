@@ -11,13 +11,13 @@ export function TeacherOverview() {
       .catch(() => setProfile(null));
   }, []);
 
-  if (!profile) return <p className="text-slate-500">Loading…</p>;
+  if (!profile) return <p className="text-slate-500">लोड होत आहे…</p>;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">My classes</h1>
-        <p className="text-sm text-slate-500">{profile.qualification || 'Teacher'} · {profile.experienceYears} yrs</p>
+        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">माझे वर्ग</h1>
+        <p className="text-sm text-slate-500">{profile.qualification || 'शिक्षक'} · {profile.experienceYears} वर्षे</p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         {(profile.classes || []).map((c) => (
@@ -30,14 +30,14 @@ export function TeacherOverview() {
               {c.name} {c.section}
             </p>
             <p className="mt-2 text-sm text-slate-500">
-              Subjects: {(profile.subjects || []).map((s) => s.name).join(', ')}
+              विषय: {(profile.subjects || []).map((s) => s.name).join(', ')}
             </p>
-            <p className="mt-4 text-sm font-medium text-brand-600">Open attendance →</p>
+            <p className="mt-4 text-sm font-medium text-brand-600">उपस्थिती उघडा →</p>
           </Link>
         ))}
       </div>
       {(!profile.classes || profile.classes.length === 0) && (
-        <p className="text-slate-500">No classes assigned yet. Ask an admin to link your profile.</p>
+        <p className="text-slate-500">अजून वर्ग नेमलेले नाहीत. प्रोफाइल लिंक करण्यासाठी प्रशासकाला सांगा.</p>
       )}
     </div>
   );

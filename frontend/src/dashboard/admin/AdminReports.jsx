@@ -8,6 +8,8 @@ export function AdminReports() {
   const [attendance, setAttendance] = useState([]);
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
+  const tabLabel = { students: 'विद्यार्थी', fees: 'फी', attendance: 'उपस्थिती' };
+  const statusLabel = { present: 'उपस्थित', absent: 'अनुपस्थित', late: 'उशीर' };
 
   useEffect(() => {
     if (tab === 'students') {
@@ -27,7 +29,7 @@ export function AdminReports() {
 
   return (
     <div className="space-y-6">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Reports</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">अहवाल</h1>
       <div className="flex flex-wrap gap-2">
         {['students', 'fees', 'attendance'].map((t) => (
           <button
@@ -38,7 +40,7 @@ export function AdminReports() {
               tab === t ? 'bg-brand-600 text-white' : 'bg-slate-100 dark:bg-slate-800'
             }`}
           >
-            {t}
+            {tabLabel[t] ?? t}
           </button>
         ))}
       </div>
@@ -48,10 +50,10 @@ export function AdminReports() {
           <table className="min-w-full text-left text-sm">
             <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
               <tr>
-                <th className="px-4 py-3">Name</th>
-                <th className="px-4 py-3">Email</th>
-                <th className="px-4 py-3">Class</th>
-                <th className="px-4 py-3">Admission</th>
+                <th className="px-4 py-3">नाव</th>
+                <th className="px-4 py-3">ईमेल</th>
+                <th className="px-4 py-3">वर्ग</th>
+                <th className="px-4 py-3">प्रवेश</th>
               </tr>
             </thead>
             <tbody>
@@ -73,10 +75,10 @@ export function AdminReports() {
           <table className="min-w-full text-left text-sm">
             <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
               <tr>
-                <th className="px-4 py-3">Student</th>
-                <th className="px-4 py-3">Amount</th>
-                <th className="px-4 py-3">Purpose</th>
-                <th className="px-4 py-3">Paid</th>
+                <th className="px-4 py-3">विद्यार्थी</th>
+                <th className="px-4 py-3">रक्कम</th>
+                <th className="px-4 py-3">उद्देश</th>
+                <th className="px-4 py-3">भरलेली तारीख</th>
               </tr>
             </thead>
             <tbody>
@@ -113,17 +115,17 @@ export function AdminReports() {
               onClick={() => loadAttendance()}
               className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white"
             >
-              Load
+              लोड करा
             </button>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
             <table className="min-w-full text-left text-sm">
               <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
                 <tr>
-                  <th className="px-4 py-3">Date</th>
-                  <th className="px-4 py-3">Student</th>
-                  <th className="px-4 py-3">Class</th>
-                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">दिनांक</th>
+                  <th className="px-4 py-3">विद्यार्थी</th>
+                  <th className="px-4 py-3">वर्ग</th>
+                  <th className="px-4 py-3">स्थिती</th>
                 </tr>
               </thead>
               <tbody>
@@ -134,7 +136,7 @@ export function AdminReports() {
                     <td className="px-4 py-3">
                       {a.classRef ? `${a.classRef.name} ${a.classRef.section}` : '—'}
                     </td>
-                    <td className="px-4 py-3 capitalize">{a.status}</td>
+                    <td className="px-4 py-3">{statusLabel[a.status] ?? a.status}</td>
                   </tr>
                 ))}
               </tbody>

@@ -1,13 +1,13 @@
 /** Public-style pages shown inside the dashboard panel (sidebar + main area). */
 export function panelWebsiteNavItems(basePath) {
   return [
-    { to: `${basePath}/site`, label: 'School home', icon: '🏛️', end: true },
-    { to: `${basePath}/site/about`, label: 'About', icon: 'ℹ️' },
-    { to: `${basePath}/site/academics`, label: 'Academics', icon: '📖' },
-    { to: `${basePath}/site/faculty`, label: 'Faculty', icon: '👤' },
-    { to: `${basePath}/site/student-life`, label: 'Student Life', icon: '🎭' },
-    { to: `${basePath}/site/admission`, label: 'Admission', icon: '📝' },
-    { to: `${basePath}/site/suggestion`, label: 'Suggestion', icon: '✉️' },
-    { to: `${basePath}/site/contact`, label: 'Contact', icon: '📍' },
+    { to: `${basePath}/site`, label: 'शाळा मुख्यपृष्ठ', icon: '🏛️', end: true },
+    { to: `${basePath}/site/about`, label: 'आमच्याबद्दल', icon: 'ℹ️' },
+    { to: `${basePath}/site/academics`, label: 'शैक्षणिक', icon: '📖' },
+    { to: `${basePath}/site/faculty`, label: 'शिक्षकवर्ग', icon: '👤' },
+    { to: `${basePath}/site/student-life`, label: 'विद्यार्थी जीवन', icon: '🎭' },
+    { to: `${basePath}/site/admission`, label: 'प्रवेश', icon: '📝' },
+    { to: `${basePath}/site/suggestion`, label: 'सूचना', icon: '✉️' },
+    { to: `${basePath}/site/contact`, label: 'संपर्क', icon: '📍' },
   ];
 }

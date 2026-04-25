@@ -64,7 +64,7 @@ export function Login() {
   async function google() {
     const auth = getFirebaseAuth();
     if (!auth) {
-      setError('Firebase not configured in this build.');
+      setError('या बिल्डमध्ये Firebase कॉन्फिगर नाही.');
       return;
     }
     setError('');
@@ -98,16 +98,16 @@ export function Login() {
             <BrandMark className="h-10" />
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
-                Demo mode
+                डेमो मोड
               </p>
               <h2 className="font-display text-xl font-bold text-slate-900 dark:text-white">
-                Explore without a server
+                सर्व्हर शिवाय पाहणी
               </h2>
             </div>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            Use <strong>static demo</strong> to walk through Admin, Teacher, and Student dashboards with sample
-            data. No MongoDB or API is required — perfect for presentations and design reviews.
+            <strong>static demo</strong> वापरून प्रशासक, शिक्षक आणि विद्यार्थी डॅशबोर्ड नमुना डेटासह
+            पाहू शकता. MongoDB किंवा API शिवायही हे चालते — सादरीकरण आणि डिझाइन पुनरावलोकनासाठी उपयुक्त.
           </p>
           <div className="mt-6 grid gap-3">
             <button
@@ -115,26 +115,26 @@ export function Login() {
               onClick={() => enterDemo('admin')}
               className="w-full rounded-xl bg-slate-900 py-3 text-sm font-semibold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
             >
-              Enter as Admin
+              प्रशासक म्हणून प्रवेश
             </button>
             <button
               type="button"
               onClick={() => enterDemo('teacher')}
               className="w-full rounded-xl bg-brand-600 py-3 text-sm font-semibold text-white hover:bg-brand-700"
             >
-              Enter as Teacher
+              शिक्षक म्हणून प्रवेश
             </button>
             <button
               type="button"
               onClick={() => enterDemo('student')}
               className="w-full rounded-xl border-2 border-brand-200 bg-white py-3 text-sm font-semibold text-brand-800 hover:bg-brand-50 dark:border-brand-700 dark:bg-slate-900 dark:text-brand-100 dark:hover:bg-slate-800"
             >
-              Enter as Student
+              विद्यार्थी म्हणून प्रवेश
             </button>
           </div>
           <p className="mt-4 text-xs text-slate-500">
-            To connect a real API later, log out and use the form on the right — or deploy the backend from this
-            repo and keep using the same UI.
+            नंतर खरा API जोडायचा असल्यास लॉगआउट करून उजवीकडील फॉर्म वापरा — किंवा या repo मधील backend
+            deploy करून हाच UI वापरत राहा.
           </p>
         </motion.div>
 
@@ -147,15 +147,15 @@ export function Login() {
         >
           <div className="flex items-center justify-between gap-2">
             <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">
-              {mode === 'login' ? 'Live API login' : 'Create account'}
+              {mode === 'login' ? 'लाईव्ह API लॉगिन' : 'नवीन खाते'}
             </h1>
             <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] font-semibold uppercase text-slate-500 dark:bg-slate-800">
               {BRANDING.schoolNameMicro}
             </span>
           </div>
           <p className="mt-2 text-sm text-slate-500">
-            Requires backend + MongoDB. JWT sessions
-            {isFirebaseConfigured() ? ' · Google optional' : ''}.
+            backend + MongoDB आवश्यक. JWT सेशन्स
+            {isFirebaseConfigured() ? ' · Google पर्यायी' : ''}.
           </p>
 
           <div className="mt-6 flex rounded-xl bg-slate-100 p-1 dark:bg-slate-800">
@@ -166,7 +166,7 @@ export function Login() {
               }`}
               onClick={() => setMode('login')}
             >
-              Login
+              लॉगिन
             </button>
             <button
               type="button"
@@ -175,14 +175,14 @@ export function Login() {
               }`}
               onClick={() => setMode('signup')}
             >
-              Sign up
+              नोंदणी
             </button>
           </div>
 
           <form onSubmit={submit} className="mt-6 space-y-4">
             {mode === 'signup' && (
               <div>
-                <label className="text-sm font-medium">Full name</label>
+                <label className="text-sm font-medium">पूर्ण नाव</label>
                 <input
                   className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
                   value={name}
@@ -192,19 +192,19 @@ export function Login() {
               </div>
             )}
             <div>
-              <label className="text-sm font-medium">Role</label>
+              <label className="text-sm font-medium">भूमिका</label>
               <select
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               >
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-                <option value="admin">Admin</option>
+                <option value="student">विद्यार्थी</option>
+                <option value="teacher">शिक्षक</option>
+                <option value="admin">प्रशासक</option>
               </select>
             </div>
             <div>
-              <label className="text-sm font-medium">Email</label>
+              <label className="text-sm font-medium">ईमेल</label>
               <input
                 type="email"
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -214,7 +214,7 @@ export function Login() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Password</label>
+              <label className="text-sm font-medium">पासवर्ड</label>
               <input
                 type="password"
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -230,7 +230,7 @@ export function Login() {
               disabled={loading}
               className="w-full rounded-xl bg-brand-600 py-3 font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
             >
-              {loading ? 'Please wait…' : mode === 'login' ? 'Login' : 'Sign up'}
+              {loading ? 'कृपया थांबा…' : mode === 'login' ? 'लॉगिन' : 'नोंदणी'}
             </button>
           </form>
 
@@ -238,7 +238,7 @@ export function Login() {
             <>
               <div className="my-6 flex items-center gap-3">
                 <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
-                <span className="text-xs text-slate-500">or</span>
+                <span className="text-xs text-slate-500">किंवा</span>
                 <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
               </div>
               <button
@@ -247,16 +247,16 @@ export function Login() {
                 disabled={loading}
                 className="w-full rounded-xl border border-slate-200 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800"
               >
-                Continue with Google
+                Google ने पुढे जा
               </button>
             </>
           )}
 
           <p className="mt-6 text-center text-sm text-slate-500">
             <Link to="/" className="text-brand-600 hover:underline">
-              ← Back to website
+              ← संकेतस्थळावर परत जा
             </Link>
-            {from !== '/' && <span className="mt-1 block text-xs text-slate-400">Requested: {from}</span>}
+            {from !== '/' && <span className="mt-1 block text-xs text-slate-400">विनंती: {from}</span>}
           </p>
         </motion.div>
       </div>

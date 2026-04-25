@@ -3,6 +3,12 @@ import { api } from '../../services/api.js';
 
 export function AdminFees() {
   const [rows, setRows] = useState([]);
+  const statusLabel = {
+    paid: 'यशस्वी',
+    dummy: 'डेमो',
+    failed: 'अयशस्वी',
+    pending: 'प्रलंबित',
+  };
 
   useEffect(() => {
     api('/api/payment/all')
@@ -12,16 +18,16 @@ export function AdminFees() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Payments</h1>
-      <p className="text-sm text-slate-500">Razorpay and dummy-mode transactions</p>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">पेमेंट्स</h1>
+      <p className="text-sm text-slate-500">Razorpay आणि dummy-mode व्यवहार</p>
       <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b bg-slate-50 text-xs uppercase dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Student</th>
-              <th className="px-4 py-3">Amount</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">When</th>
+              <th className="px-4 py-3">विद्यार्थी</th>
+              <th className="px-4 py-3">रक्कम</th>
+              <th className="px-4 py-3">स्थिती</th>
+              <th className="px-4 py-3">वेळ</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +47,7 @@ export function AdminFees() {
                           : 'bg-amber-100 text-amber-800'
                     }`}
                   >
-                    {p.status}
+                    {statusLabel[p.status] ?? p.status}
                   </span>
                 </td>
                 <td className="px-4 py-3 text-slate-500">

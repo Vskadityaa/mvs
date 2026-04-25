@@ -37,12 +37,12 @@ export function TeacherHomework() {
     setDescription('');
     setDue('');
     setFile(null);
-    alert('Homework posted');
+    alert('गृहपाठ प्रकाशित झाला');
   }
 
   return (
     <div className="mx-auto max-w-xl space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Homework</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">गृहपाठ</h1>
       <form onSubmit={submit} className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <select
           className="w-full rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -60,7 +60,7 @@ export function TeacherHomework() {
           value={subjectId}
           onChange={(e) => setSubjectId(e.target.value)}
         >
-          <option value="">Subject (optional)</option>
+          <option value="">विषय (ऐच्छिक)</option>
           {subjects.map((s) => (
             <option key={s._id} value={s._id}>
               {s.name}
@@ -68,14 +68,14 @@ export function TeacherHomework() {
           ))}
         </select>
         <input
-          placeholder="Title"
+          placeholder="शीर्षक"
           className="w-full rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
         <textarea
-          placeholder="Description"
+          placeholder="वर्णन"
           className="w-full rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           rows={3}
           value={description}
@@ -89,7 +89,7 @@ export function TeacherHomework() {
         />
         <input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} />
         <button type="submit" className="w-full rounded-xl bg-brand-600 py-3 font-semibold text-white">
-          Upload homework
+          गृहपाठ अपलोड करा
         </button>
       </form>
     </div>

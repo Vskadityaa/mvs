@@ -18,7 +18,7 @@ export function Admission() {
     e.preventDefault();
     try {
       await api('/api/public/admissions', { method: 'POST', body: JSON.stringify(form) });
-      setStatus('Application received. Our office will contact you after review.');
+      setStatus('अर्ज प्राप्त झाला. पडताळणीनंतर आमचे कार्यालय तुमच्याशी संपर्क करेल.');
       setForm({
         studentName: '',
         parentName: '',
@@ -50,23 +50,23 @@ export function Admission() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">Admission</h1>
+        <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">प्रवेश</h1>
         <p className="mt-3 text-slate-600 dark:text-slate-300">
-          Submit an enquiry. Administrators can approve admissions from the admin console.
+          चौकशी पाठवा. प्रशासक admin console मधून प्रवेश मंजूर करू शकतात.
         </p>
       </motion.div>
       <form
         onSubmit={submit}
         className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 md:grid-cols-2"
       >
-        {field('studentName', 'Student name')}
-        {field('parentName', 'Parent / guardian name')}
-        {field('email', 'Email', 'email')}
-        {field('phone', 'Phone')}
-        {field('applyingClass', 'Applying for class')}
-        {field('previousSchool', 'Previous school', 'text', { required: false })}
+        {field('studentName', 'विद्यार्थ्याचे नाव')}
+        {field('parentName', 'पालक / संरक्षक नाव')}
+        {field('email', 'ईमेल', 'email')}
+        {field('phone', 'फोन')}
+        {field('applyingClass', 'कोणत्या वर्गासाठी अर्ज')}
+        {field('previousSchool', 'मागील शाळा', 'text', { required: false })}
         <div className="md:col-span-2">
-          <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Message (optional)</label>
+          <label className="text-sm font-medium text-slate-700 dark:text-slate-300">संदेश (ऐच्छिक)</label>
           <textarea
             className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             rows={3}
@@ -79,7 +79,7 @@ export function Admission() {
             type="submit"
             className="w-full rounded-xl bg-brand-600 py-3 font-semibold text-white hover:bg-brand-700"
           >
-            Submit application
+            अर्ज सबमिट करा
           </button>
         </div>
         {status && (

@@ -11,7 +11,7 @@ export function StudentChat() {
     try {
       await api('/api/student/chat', { method: 'POST', body: JSON.stringify({ text }) });
       setText('');
-      setStatus('Message sent (Firestore class channel).');
+      setStatus('संदेश पाठवला (Firestore वर्ग चॅनेल).');
     } catch (err) {
       setStatus(err.message);
     }
@@ -19,9 +19,9 @@ export function StudentChat() {
 
   return (
     <div className="mx-auto max-w-lg space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Class pulse</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">वर्ग संदेश</h1>
       <p className="text-sm text-slate-500">
-        Lightweight chat message stored in Firestore under your class. Extend with real-time listeners as needed.
+        तुमच्या वर्गासाठी Firestore मध्ये संदेश जतन होतो. गरजेनुसार रिअल-टाइम श्रोते जोडा.
       </p>
       <form onSubmit={send} className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <textarea
@@ -33,7 +33,7 @@ export function StudentChat() {
           required
         />
         <button type="submit" className="w-full rounded-xl bg-brand-600 py-3 font-semibold text-white">
-          Send
+          पाठवा
         </button>
         {status && <p className="text-sm text-slate-600 dark:text-slate-400">{status}</p>}
       </form>

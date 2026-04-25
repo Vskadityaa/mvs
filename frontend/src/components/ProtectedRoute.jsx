@@ -8,7 +8,7 @@ export function ProtectedRoute({ children, roles }) {
   if (loading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center text-slate-500 dark:text-slate-400">
-        Loading…
+        लोड होत आहे…
       </div>
     );
   }

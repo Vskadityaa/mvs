@@ -10,7 +10,7 @@ export function Contact() {
     e.preventDefault();
     try {
       await api('/api/public/contact', { method: 'POST', body: JSON.stringify(form) });
-      setStatus('Message sent. We will get back to you shortly.');
+      setStatus('संदेश पाठवला गेला. आम्ही लवकरच संपर्क करू.');
       setForm({ name: '', email: '', message: '' });
     } catch (err) {
       setStatus(err.message);
@@ -21,12 +21,12 @@ export function Contact() {
     <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
       <div className="grid gap-10 lg:grid-cols-2">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">Contact</h1>
+          <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">संपर्क</h1>
           <p className="mt-4 text-slate-600 dark:text-slate-300">
-            Nutan Vidya Mandir&apos;s Maharashtra English School, Goregaon, Mumbai — update this address in
-            Contact.jsx with your full postal address and landmark.
+            नूतन विद्या मंदिर महाराष्ट्र इंग्लिश स्कूल, गोरेगाव, मुंबई — तुमचा पूर्ण पोस्टल पत्ता आणि
+            लँडमार्क येथे अपडेट करा.
           </p>
-          <p className="mt-2 text-sm text-slate-500">Phone: +91 20 4000 0000 · admissions@vidyasetu.edu</p>
+          <p className="mt-2 text-sm text-slate-500">फोन: +91 20 4000 0000 · admissions@vidyasetu.edu</p>
           <div className="mt-8 aspect-video overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
             <iframe
               title="map"
@@ -40,10 +40,10 @@ export function Contact() {
           onSubmit={submit}
           className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900"
         >
-          <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white">Send a message</h2>
+          <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white">संदेश पाठवा</h2>
           <div className="mt-4 space-y-4">
             <div>
-              <label className="text-sm font-medium">Name</label>
+              <label className="text-sm font-medium">नाव</label>
               <input
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
                 value={form.name}
@@ -52,7 +52,7 @@ export function Contact() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Email</label>
+              <label className="text-sm font-medium">ईमेल</label>
               <input
                 type="email"
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -62,7 +62,7 @@ export function Contact() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Message</label>
+              <label className="text-sm font-medium">संदेश</label>
               <textarea
                 className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
                 rows={4}
@@ -76,7 +76,7 @@ export function Contact() {
             type="submit"
             className="mt-6 w-full rounded-xl bg-brand-600 py-3 font-semibold text-white hover:bg-brand-700"
           >
-            Submit
+            पाठवा
           </button>
           {status && <p className="mt-4 text-center text-sm text-slate-600 dark:text-slate-400">{status}</p>}
         </form>

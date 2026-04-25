@@ -10,7 +10,7 @@ export function StudentNotes() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Notes</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">नोट्स</h1>
       <ul className="space-y-3">
         {rows.map((n) => (
           <li
@@ -27,7 +27,7 @@ export function StudentNotes() {
               rel="noreferrer"
               className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white"
             >
-              Download
+              डाउनलोड
             </a>
           </li>
         ))}

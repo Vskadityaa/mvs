@@ -10,14 +10,14 @@ export function StudentResults() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Results</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">निकाल</h1>
       <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Exam</th>
-              <th className="px-4 py-3">Subject</th>
-              <th className="px-4 py-3">Marks</th>
+              <th className="px-4 py-3">परीक्षा</th>
+              <th className="px-4 py-3">विषय</th>
+              <th className="px-4 py-3">गुण</th>
             </tr>
           </thead>
           <tbody>

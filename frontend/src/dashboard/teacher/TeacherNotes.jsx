@@ -24,7 +24,7 @@ export function TeacherNotes() {
   async function submit(e) {
     e.preventDefault();
     if (!file) {
-      alert('PDF / file required');
+      alert('PDF / फाइल आवश्यक आहे');
       return;
     }
     const fd = new FormData();
@@ -35,13 +35,13 @@ export function TeacherNotes() {
     await apiForm('/api/teacher/notes', fd);
     setTitle('');
     setFile(null);
-    alert('Note uploaded to Firebase Storage');
+    alert('नोट Firebase Storage मध्ये अपलोड झाली');
   }
 
   return (
     <div className="mx-auto max-w-xl space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Study notes</h1>
-      <p className="text-sm text-slate-500">PDFs stored in Firebase Storage when configured.</p>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">अभ्यास नोट्स</h1>
+      <p className="text-sm text-slate-500">कन्फिगरेशन असल्यास PDFs Firebase Storage मध्ये जतन होतात.</p>
       <form onSubmit={submit} className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <select
           className="w-full rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -59,7 +59,7 @@ export function TeacherNotes() {
           value={subjectId}
           onChange={(e) => setSubjectId(e.target.value)}
         >
-          <option value="">Subject (optional)</option>
+          <option value="">विषय (ऐच्छिक)</option>
           {subjects.map((s) => (
             <option key={s._id} value={s._id}>
               {s.name}
@@ -67,7 +67,7 @@ export function TeacherNotes() {
           ))}
         </select>
         <input
-          placeholder="Title"
+          placeholder="शीर्षक"
           className="w-full rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -75,7 +75,7 @@ export function TeacherNotes() {
         />
         <input type="file" accept=".pdf,application/pdf" onChange={(e) => setFile(e.target.files?.[0] || null)} />
         <button type="submit" className="w-full rounded-xl bg-brand-600 py-3 font-semibold text-white">
-          Upload PDF
+          PDF अपलोड करा
         </button>
       </form>
     </div>

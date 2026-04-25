@@ -38,7 +38,7 @@ export function AdminStudents() {
   }
 
   async function remove(id) {
-    if (!confirm('Delete student?')) return;
+    if (!confirm('विद्यार्थी हटवायचा का?')) return;
     await api(`/api/admin/students/${id}`, { method: 'DELETE' });
     load();
   }
@@ -47,12 +47,12 @@ export function AdminStudents() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-end">
         <div>
-          <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Students</h1>
-          <p className="text-sm text-slate-500">Search, add, and remove student accounts</p>
+          <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">विद्यार्थी</h1>
+          <p className="text-sm text-slate-500">विद्यार्थी खाती शोधा, जोडा आणि हटवा</p>
         </div>
         <div className="flex gap-2">
           <input
-            placeholder="Search roll / admission"
+            placeholder="रोल / प्रवेश शोधा"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -62,7 +62,7 @@ export function AdminStudents() {
             onClick={() => load()}
             className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white dark:bg-white dark:text-slate-900"
           >
-            Search
+            शोधा
           </button>
         </div>
       </div>
@@ -72,14 +72,14 @@ export function AdminStudents() {
         className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:grid-cols-3 lg:grid-cols-6"
       >
         <input
-          placeholder="Name"
+          placeholder="नाव"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
           required
         />
         <input
-          placeholder="Email"
+          placeholder="ईमेल"
           type="email"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.email}
@@ -87,20 +87,20 @@ export function AdminStudents() {
           required
         />
         <input
-          placeholder="Password"
+          placeholder="पासवर्ड"
           type="password"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
         <input
-          placeholder="Roll no"
+          placeholder="रोल क्र."
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.rollNo}
           onChange={(e) => setForm({ ...form, rollNo: e.target.value })}
         />
         <input
-          placeholder="Admission no"
+          placeholder="प्रवेश क्र."
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={form.admissionNo}
           onChange={(e) => setForm({ ...form, admissionNo: e.target.value })}
@@ -110,7 +110,7 @@ export function AdminStudents() {
           value={classId}
           onChange={(e) => setClassId(e.target.value)}
         >
-          <option value="">Class (optional)</option>
+          <option value="">वर्ग (ऐच्छिक)</option>
           {classes.map((c) => (
             <option key={c._id} value={c._id}>
               {c.name} {c.section}
@@ -121,7 +121,7 @@ export function AdminStudents() {
           type="submit"
           className="rounded-xl bg-brand-600 py-2 text-sm font-semibold text-white md:col-span-3 lg:col-span-6"
         >
-          Add student
+          विद्यार्थी जोडा
         </button>
       </form>
 
@@ -129,10 +129,10 @@ export function AdminStudents() {
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Class</th>
-              <th className="px-4 py-3">Roll</th>
+              <th className="px-4 py-3">नाव</th>
+              <th className="px-4 py-3">ईमेल</th>
+              <th className="px-4 py-3">वर्ग</th>
+              <th className="px-4 py-3">रोल</th>
               <th className="px-4 py-3" />
             </tr>
           </thead>
@@ -147,7 +147,7 @@ export function AdminStudents() {
                 <td className="px-4 py-3">{r.rollNo || '—'}</td>
                 <td className="px-4 py-3 text-right">
                   <button type="button" className="text-red-600" onClick={() => remove(r._id)}>
-                    Delete
+                    हटवा
                   </button>
                 </td>
               </tr>

@@ -19,21 +19,21 @@ export function AdminOverview() {
   }, []);
 
   if (!data) {
-    return <p className="text-slate-500">Loading analytics…</p>;
+    return <p className="text-slate-500">विश्लेषण लोड होत आहे…</p>;
   }
 
   const cards = [
-    { label: 'Students', value: data.counts.students, color: 'from-blue-500 to-indigo-600' },
-    { label: 'Teachers', value: data.counts.teachers, color: 'from-emerald-500 to-teal-600' },
-    { label: 'Classes', value: data.counts.classes, color: 'from-amber-500 to-orange-600' },
-    { label: 'Attendance today', value: data.counts.attendanceToday, color: 'from-violet-500 to-purple-600' },
+    { label: 'विद्यार्थी', value: data.counts.students, color: 'from-blue-500 to-indigo-600' },
+    { label: 'शिक्षक', value: data.counts.teachers, color: 'from-emerald-500 to-teal-600' },
+    { label: 'वर्ग', value: data.counts.classes, color: 'from-amber-500 to-orange-600' },
+    { label: 'आजची उपस्थिती', value: data.counts.attendanceToday, color: 'from-violet-500 to-purple-600' },
   ];
 
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Dashboard</h1>
-        <p className="text-sm text-slate-500">Operational snapshot</p>
+        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">डॅशबोर्ड</h1>
+        <p className="text-sm text-slate-500">कार्यक्षमतेचा आढावा</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((c, i) => (
@@ -55,7 +55,7 @@ export function AdminOverview() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 lg:col-span-2"
         >
-          <h2 className="font-semibold text-slate-900 dark:text-white">Fee collections (by month)</h2>
+          <h2 className="font-semibold text-slate-900 dark:text-white">फी संकलन (महिन्यानुसार)</h2>
           <div className="mt-4 h-72">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data.feeTrend?.length ? data.feeTrend : [{ month: '—', amount: 0 }]}>
@@ -73,11 +73,11 @@ export function AdminOverview() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900"
         >
-          <h2 className="font-semibold text-slate-900 dark:text-white">Revenue (paid + demo)</h2>
+          <h2 className="font-semibold text-slate-900 dark:text-white">एकूण उत्पन्न (paid + demo)</h2>
           <p className="mt-4 text-4xl font-bold text-brand-600 dark:text-brand-400">
             ₹{Number(data.revenue || 0).toLocaleString('en-IN')}
           </p>
-          <p className="mt-2 text-sm text-slate-500">Includes Razorpay verified and dummy fallback payments.</p>
+          <p className="mt-2 text-sm text-slate-500">Razorpay पडताळलेले आणि dummy fallback पेमेंट्स समाविष्ट आहेत.</p>
         </motion.div>
       </div>
     </div>

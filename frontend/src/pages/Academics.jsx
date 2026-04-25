@@ -3,27 +3,27 @@ import { motion } from 'framer-motion';
 const streams = [
   {
     title: 'Marathi Prathamik',
-    body: 'Foundational literacy in Marathi, numeracy, arts, and environmental awareness with activity-based learning.',
-    grades: 'Std 1–4',
+    body: 'क्रियाधारित शिक्षणातून मराठी साक्षरता, अंकज्ञान, कला आणि पर्यावरण-जागरूकतेचा मजबूत पाया.',
+    grades: 'इयत्ता 1–4',
   },
   {
     title: 'Marathi Madhyamik',
-    body: 'State-board aligned curriculum with science labs, language excellence, and competitive exam readiness.',
-    grades: 'Std 5–10',
+    body: 'राज्य मंडळानुसार अभ्यासक्रम, विज्ञान प्रयोगशाळा, भाषिक प्रावीण्य आणि स्पर्धा परीक्षांची तयारी.',
+    grades: 'इयत्ता 5–10',
   },
   {
-    title: 'English Medium',
-    body: 'CBSE-inspired pedagogy with global reading programs, STEM projects, and holistic assessments.',
-    grades: 'Std 1–10',
+    title: 'इंग्रजी माध्यम',
+    body: 'CBSE प्रेरित अध्यापन, जागतिक वाचन कार्यक्रम, STEM प्रकल्प आणि सर्वांगीण मूल्यमापन.',
+    grades: 'इयत्ता 1–10',
   },
 ];
 
 export function Academics() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
-      <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">Academics</h1>
+      <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">शैक्षणिक</h1>
       <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
-        Three strong pathways — each with dedicated faculty, digital resources, and measurable learning outcomes.
+        तीन सक्षम शैक्षणिक मार्ग — प्रत्येकासाठी समर्पित शिक्षकवर्ग, डिजिटल साधने आणि मोजता येणारे शैक्षणिक परिणाम.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {streams.map((s, i) => (

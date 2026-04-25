@@ -18,16 +18,16 @@ export function StudentLife() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
-      <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">Student Life</h1>
+      <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-white">विद्यार्थी जीवन</h1>
       <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
-        Events, achievements, and glimpses of our vibrant campus culture.
+        कार्यक्रम, यश आणि आमच्या समृद्ध कॅम्पस संस्कृतीची झलक.
       </p>
 
       <section className="mt-12">
-        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Events</h2>
+        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">कार्यक्रम</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {events.length === 0 && (
-            <p className="text-sm text-slate-500">No events published yet — check back after admin setup.</p>
+            <p className="text-sm text-slate-500">अजून कार्यक्रम प्रकाशित झालेले नाहीत — नंतर पुन्हा पहा.</p>
           )}
           {events.map((e, i) => (
             <motion.div
@@ -50,7 +50,7 @@ export function StudentLife() {
       </section>
 
       <section className="mt-14">
-        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Achievements</h2>
+        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">यश</h2>
         <ul className="mt-4 list-inside list-disc space-y-2 text-slate-600 dark:text-slate-400">
           <li>District-level science fair winners — 2024</li>
           <li>State karate championship — bronze medal</li>
@@ -59,7 +59,7 @@ export function StudentLife() {
       </section>
 
       <section className="mt-14">
-        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Gallery</h2>
+        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">गॅलरी</h2>
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
           {gallery.map((src, i) => (
             <motion.img

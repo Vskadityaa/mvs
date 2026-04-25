@@ -32,10 +32,10 @@ export function StudentNotices() {
 
   return (
     <div className="space-y-6">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Notices</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">सूचना</h1>
       {fsOn && (
         <div>
-          <p className="mb-2 text-sm font-semibold text-emerald-600">Live (Firestore)</p>
+          <p className="mb-2 text-sm font-semibold text-emerald-600">लाईव्ह (Firestore)</p>
           <ul className="space-y-3">
             {live.map((n) => (
               <li
@@ -50,7 +50,7 @@ export function StudentNotices() {
         </div>
       )}
       <div>
-        <p className="mb-2 text-sm font-semibold text-slate-500">Archive (MongoDB API)</p>
+        <p className="mb-2 text-sm font-semibold text-slate-500">संग्रह (MongoDB API)</p>
         <ul className="space-y-3">
           {mongo.map((n) => (
             <li

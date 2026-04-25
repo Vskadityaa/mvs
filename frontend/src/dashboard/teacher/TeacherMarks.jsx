@@ -38,7 +38,7 @@ export function TeacherMarks() {
   async function saveForStudent(studentId) {
     const obtained = Number(marks[studentId]);
     if (Number.isNaN(obtained)) {
-      alert('Enter valid marks');
+      alert('वैध गुण भरा');
       return;
     }
     await api('/api/teacher/marks', {
@@ -52,12 +52,12 @@ export function TeacherMarks() {
         maxMarks: 100,
       }),
     });
-    alert('Saved');
+    alert('जतन झाले');
   }
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Marks entry</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">गुण नोंदणी</h1>
       <div className="flex flex-wrap gap-3">
         <select
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
@@ -82,7 +82,7 @@ export function TeacherMarks() {
           ))}
         </select>
         <input
-          placeholder="Exam name"
+          placeholder="परीक्षेचे नाव"
           className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
           value={examName}
           onChange={(e) => setExamName(e.target.value)}
@@ -92,8 +92,8 @@ export function TeacherMarks() {
         <table className="min-w-full text-left text-sm">
           <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Student</th>
-              <th className="px-4 py-3">Marks (/100)</th>
+              <th className="px-4 py-3">विद्यार्थी</th>
+              <th className="px-4 py-3">गुण (/100)</th>
               <th className="px-4 py-3" />
             </tr>
           </thead>
@@ -115,7 +115,7 @@ export function TeacherMarks() {
                     className="text-sm font-semibold text-brand-600"
                     onClick={() => saveForStudent(s._id)}
                   >
-                    Save
+                    जतन करा
                   </button>
                 </td>
               </tr>

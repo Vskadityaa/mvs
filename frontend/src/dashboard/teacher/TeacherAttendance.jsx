@@ -41,12 +41,12 @@ export function TeacherAttendance() {
       method: 'POST',
       body: JSON.stringify({ classRef: classId, date, entries }),
     });
-    alert('Attendance saved');
+    alert('उपस्थिती जतन झाली');
   }
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Attendance</h1>
+      <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">उपस्थिती</h1>
       <div className="flex flex-wrap items-center gap-3">
         <input
           type="date"
@@ -59,15 +59,15 @@ export function TeacherAttendance() {
           onClick={save}
           className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white"
         >
-          Save
+          जतन करा
         </button>
       </div>
       <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Student</th>
-              <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">विद्यार्थी</th>
+              <th className="px-4 py-3">स्थिती</th>
             </tr>
           </thead>
           <tbody>
@@ -80,9 +80,9 @@ export function TeacherAttendance() {
                     value={statusMap[s._id] || 'present'}
                     onChange={(e) => setStatusMap({ ...statusMap, [s._id]: e.target.value })}
                   >
-                    <option value="present">Present</option>
-                    <option value="absent">Absent</option>
-                    <option value="late">Late</option>
+                    <option value="present">उपस्थित</option>
+                    <option value="absent">अनुपस्थित</option>
+                    <option value="late">उशीर</option>
                   </select>
                 </td>
               </tr>

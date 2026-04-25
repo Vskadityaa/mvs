@@ -61,7 +61,7 @@ export function AdminTeachers() {
   }
 
   async function remove(id) {
-    if (!confirm('Delete teacher?')) return;
+    if (!confirm('शिक्षक हटवायचा का?')) return;
     await api(`/api/admin/teachers/${id}`, { method: 'DELETE' });
     load();
   }
@@ -69,8 +69,8 @@ export function AdminTeachers() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Teachers</h1>
-        <p className="text-sm text-slate-500">Assign classes and subjects</p>
+        <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white">शिक्षक</h1>
+        <p className="text-sm text-slate-500">वर्ग आणि विषय नेमणी</p>
       </div>
 
       <form
@@ -79,7 +79,7 @@ export function AdminTeachers() {
       >
         <div className="grid gap-3 md:grid-cols-3">
           <input
-            placeholder="Name"
+            placeholder="नाव"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -87,7 +87,7 @@ export function AdminTeachers() {
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="ईमेल"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -95,26 +95,26 @@ export function AdminTeachers() {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="पासवर्ड"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
           <input
-            placeholder="Qualification"
+            placeholder="पात्रता"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={form.qualification}
             onChange={(e) => setForm({ ...form, qualification: e.target.value })}
           />
           <input
             type="number"
-            placeholder="Experience years"
+            placeholder="अनुभव (वर्षे)"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             value={form.experienceYears}
             onChange={(e) => setForm({ ...form, experienceYears: e.target.value })}
           />
           <input
-            placeholder="Bio"
+            placeholder="परिचय"
             className="rounded-xl border px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950 md:col-span-3"
             value={form.bio}
             onChange={(e) => setForm({ ...form, bio: e.target.value })}
@@ -122,7 +122,7 @@ export function AdminTeachers() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           <div>
-            <p className="text-xs font-semibold uppercase text-slate-500">Classes</p>
+            <p className="text-xs font-semibold uppercase text-slate-500">वर्ग</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {classes.map((c) => (
                 <button
@@ -141,7 +141,7 @@ export function AdminTeachers() {
             </div>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase text-slate-500">Subjects</p>
+            <p className="text-xs font-semibold uppercase text-slate-500">विषय</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {subjects.map((s) => (
                 <button
@@ -161,7 +161,7 @@ export function AdminTeachers() {
           </div>
         </div>
         <button type="submit" className="rounded-xl bg-brand-600 px-6 py-2 text-sm font-semibold text-white">
-          Add teacher
+          शिक्षक जोडा
         </button>
       </form>
 
@@ -169,9 +169,9 @@ export function AdminTeachers() {
         <table className="min-w-full text-left text-sm">
           <thead className="border-b bg-slate-50 text-xs uppercase dark:border-slate-800 dark:bg-slate-800/50">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Qualification</th>
-              <th className="px-4 py-3">Classes</th>
+              <th className="px-4 py-3">नाव</th>
+              <th className="px-4 py-3">पात्रता</th>
+              <th className="px-4 py-3">वर्ग</th>
               <th className="px-4 py-3" />
             </tr>
           </thead>
@@ -185,7 +185,7 @@ export function AdminTeachers() {
                 </td>
                 <td className="px-4 py-3 text-right">
                   <button type="button" className="text-red-600" onClick={() => remove(r._id)}>
-                    Delete
+                    हटवा
                   </button>
                 </td>
               </tr>
